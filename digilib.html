@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANTI (Scholarly Achievement Network Through Innovation - Jaringan Prestasi Ilmiah Melalui Inovasi)</title>
+    <style>
+    
+    body, html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+    }
+
+    /* Animasi Fade-In */
+    /* Animasi Fade-In */
+	/* Animasi Fade-In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in-1 {
+    opacity: 0; /* Mulai dengan transparan */
+    animation: fadeIn 1s ease-in forwards infinite alternate; /* Animasi berjalan terus menerus dengan arah bolak-balik */
+}
+
+.fade-in-2 {
+    opacity: 0; /* Mulai dengan transparan */
+    animation: fadeIn 2s ease-in 2s forwards infinite alternate; /* Animasi berjalan terus menerus dengan delay 2 detik */
+}
+
+.fade-in-3 {
+    opacity: 0; /* Mulai dengan transparan */
+    animation: fadeIn 2s ease-in 3s forwards infinite alternate; /* Animasi berjalan terus menerus dengan delay 2 detik */
+}
+
+
+    /* Header Video */
+    .header-video {
+        position: relative;
+        width: 100%;
+        height: 50vh;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+    }
+
+    /* YouTube Player */
+    #player {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Play Button Overlay */
+    .play-button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        border: none;
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .play-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .play-button:before {
+        content: '';
+        display: block;
+        border-style: solid;
+        border-width: 15px 0 15px 25px;
+        border-color: transparent transparent transparent white;
+        margin-left: 5px;
+    }
+
+    /* Logo */
+    .logo-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .logo-container img {
+        width: 350px;
+        height: 250px;
+    }
+
+    /* Navigation Menu */
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        background-color: #f4f4f4;
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-menu button {
+        background-color: green;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        margin: 1px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        flex: 1 1 30%; /* Menetapkan flex-basis untuk membuatnya lebih fleksibel */
+        min-width: 120px;
+        border-radius: 8px;
+        text-align: center;
+        max-width: 30%; /* Membatasi lebar maksimum 30% per tombol */
+    }
+
+    .nav-menu button:hover {
+        background-color: darkblue;
+    }
+
+    .nav-menu button.active {
+        background-color: red;
+    }
+
+    /* Responsive behavior */
+    @media (max-width: 768px) {
+        .nav-menu {
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .nav-menu button {
+            flex-basis: 30%; /* Agar tombol lebih fleksibel dan mengatur 3 tombol per baris */
+            max-width: 30%; /* Membatasi tombol ke ukuran maksimum 30% per baris */
+        }
+    }
+
+    @media (max-width: 480px) {
+        .nav-menu {
+            justify-content: space-around; /* Mengatur tombol menjadi dua baris untuk layar lebih kecil */
+        }
+
+        .nav-menu button {
+            flex-basis: 30%; /* Agar tombol-tombol mengisi tiga per baris */
+            max-width: 30%; /* Menetapkan lebar maksimum 30% dari lebar layar */
+        }
+    }
+
+    /* Other content styling */
+    .content {
+        padding: 20px;
+    }
+
+    .category {
+        margin-bottom: 40px;
+    }
+
+    .category h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .books {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        align-items: stretch;
+    }
+
+    .book {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        width: 300px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .book img {
+        width: 100%;
+        height: 200px;
+        object-fit: contain;
+        background-color: #f9f9f9;
+    }
+
+    .book-details {
+        padding: 15px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .book-details h4 {
+        margin: 0 0 10px 0;
+        font-size: 1.2em;
+    }
+
+    .book-details .author {
+        margin: 0 0 10px 0;
+        font-style: italic;
+        font-size: 1em;
+    }
+
+    .book-details p {
+        flex: 1;
+        margin: 0;
+        padding: 0;
+        font-size: 0.9em;
+        color: #555;
+        text-align: justify;
+    }
+
+    .book-details a {
+        margin-top: 10px;
+        align-self: center;
+        text-align: center;
+        padding: 10px;
+        background-color: green;
+        color: white;
+        text-decoration: none;
+        border-radius: 3px;
+        transition: background-color 0.3s;
+    }
+
+    .book-details a:hover {
+        background-color: #FF0000;
+    }
+
+    /* Footer */
+    .footer {
+        background-color: #f4f4f4;
+        padding: 5px;
+        text-align: center;
+        position: relative;
+    }
+
+    .footer p {
+        margin: 0;
+        font-size: 0.9em;
+        color: #000;
+    }
+
+    .footer .contacts {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5em;
+        margin-top: 5px;
+    }
+
+    .footer .contacts img {
+        width: 30px;
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .footer .contacts img:hover {
+        transform: scale(1.1);
+    }
+    </style>
+</head>
+<body>
+
+    <!-- Header Video -->
+    <div class="header-video">
+        <div id="player"></div> <!-- YouTube Player Placeholder -->
+        <button class="play-button" id="play-button" aria-label="Play Video"></button>
+    </div>
+
+    <!-- Logo -->
+    <div class="logo-container">
+         <a href="https://play.google.com/store/apps/dev?id=5168541788940595530" target="_blank">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiCrAActDGkBpfboliqYIwewTJ4XaPtYgZBDqrIqE-y-e2O7_oGjIf71M3zm4b0T8arsW78Kiffs-bJJwuN560iptWck4zvU4vxQ65jGCd4btKM5iBg06ZiKe_4IjJI77ILkY0AJanzcp6_HIJ7NNc3X6oPMbLw-36jETZYDX2Rbtl6gmUmW1vZX_jwEJk/s600/Developer%20Lombok%20IT.gif" class="logo" alt="Logo">
+        </a>
+    </div>
+
+     <!-- Navigation Menu -->
+    <div class="nav-menu">
+        <button class="nav-btn active" data-target="home">Home</button>
+        <button class="nav-btn" data-target="buku-pelajaran">e-Book Pelajaran</button>
+        <button class="nav-btn" data-target="buku-guru">e-Book Guru / Dosen</button>
+        <button class="nav-btn" data-target="buku-siswa">e-Book Siswa / Mahasiswa</button>
+        <button class="nav-btn" data-target="buku-umum">e-Book Umum</button>
+        <button class="nav-btn" data-target="tentang">Tentang Aplikasi</button>
+        <p class="fade-in-1" style="text-align:center;"><b>"Semua Aplikasi Digital<br> Karya Tulis/Penelitian Anda<br> Akan Mendapatkan<br> HAK PATEN Internasional"</b></p>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content" id="content">
+
+        <!-- Home Section -->
+        <div class="category" id="home">
+            <p style="text-align:justify;">Selamat datang dan selamat bergabung pada portal Resmi Publikasi Karya Tulis Internasional <b>"SANTI (Scholarly Achievement Network Through Innovation - Jaringan Prestasi Ilmiah Melalui Inovasi)"</b>.</p>
+            <p class="fade-in-2" style="text-align:center;"><b>"Bersama Kita Pasti Bisa,<br> Jadikan Semua Lebih Mudah"</b></p>
+            <p class="fade-in-3" style="text-align:center;"><b>Developer Lombok IT,<br> "JADIKAN SEMUA LEBIH MUDAH"</b></p> <!-- Teks baru dengan efek fade-in dan delay -->
+        </div>
+
+        <!-- Buku Pelajaran -->
+        <div class="category" id="buku-pelajaran" style="display:none;">
+            <h2>Buku Pelajaran</h2>
+            <div class="books">
+                <div class="book">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOxFXnhgVJtPI-tA5ebSkzDAJ3-J_Kor9NzA_unGldoyU5St125Axp9bG4YGpKIOXuEPHN5Ll43tLlNGQo6hewVTtOcsWNGlxl9PC-BAXd2j4Iupuri7onMnmBVnyz8GFXHR56SrD75U-UK6NoXEYXnSYnV5QHmmmrwvU4gADZSq9cjyItQtq19xEfIBE/s595/Teknologi%20Pendidikan.jpg" alt="Teknologi Pendidikan">
+                    <div class="book-details">
+                        <h4>Teknologi Pendidikan</h4>
+						<p class="author">Telah Terbit Pada 25 Mei 2024</p>
+                        <p class="author">Oleh: Abdul Kadir Bagis, M. Pd</p>
+                        <p><b>Buku Digital</b> ini akan membahas pentingnya teknologi dalam dunia pendidikan, terutama dalam konteks peran teknologi bagi guru dan murid di lingkungan sekolah. Teknologi memiliki pengaruh yang besar dalam memperkaya proses pembelajaran dan pengajaran, serta memberikan manfaat yang signifikan bagi semua pihak yang terlibat dalam dunia pendidikan.</p>
+                        <a href="https://online.flipbuilder.com/gchwn/bkvl/">Baca Buku Ini</a>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEPsisCsvbMsr5bNoNcJXqy-l95F9No9OVizdGf3F3uiO8gt1JZBQc4bXqGWzIEjlYQJyMapkTfllPMpigt6twQmzjcDzqNXve0LbC7xnGdZsyAY5JfIOVT4TCwXm1aw3_cR66GQJnXBiTMD0mBnmEPot6or0gmFf-TOnbLr1i52l4kDSsuyXICm_98sA/s595/English%20in%20Media%20Discourse.jpg" alt="English in Media Discourse">
+                    <div class="book-details">
+                        <h4>English in Media Discourse</h4>
+						<p class="author">Published on 21 April 2024</p>
+                        <p class="author">By: Abdul Kadir Bagis, M. Pd</p>
+                        <p><b>This Digital Book</b> entitled “English in Media Discourse” is published to help students, teachers and many other researchers in understanding deeper about the topic whether for fulfilling the requirements in accomplishing their study or for personal use. This reference covers 12 topics that delve into various aspects of English in media discourse. The first meeting introduces media discourse, its significance, and the importance of critical analysis in media consumption. Subsequent meetings explore language and power in media, news reporting styles, discourse analysis techniques, and identity construction through media.</p>
+                        <a href="https://online.flipbuilder.com/gchwn/uxgh/">Read It Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buku Guru / Dosen -->
+        <div class="category" id="buku-guru" style="display:none;">
+            <h2>Buku Guru / Dosen</h2>
+            <div class="books">
+                <div class="book">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg" alt="Buku 3">
+                    <div class="book-details">
+                        <h4>Strategi Pengajaran Efektif</h4>
+                        <p class="author">Oleh: Citra Lestari</p>
+                        <p>Metode dan strategi untuk meningkatkan efektivitas pengajaran di kelas.</p>
+                        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg">Baca Buku Ini</a>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg" alt="Buku 4">
+                    <div class="book-details">
+                        <h4>Manajemen Kelas Modern</h4>
+                        <p class="author">Oleh: Dedi Pratama</p>
+                        <p>Teknik manajemen kelas yang sesuai dengan era digital saat ini.</p>
+                        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg">Baca Buku Ini</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buku Siswa / Mahasiswa -->
+        <div class="category" id="buku-siswa" style="display:none;">
+            <h2>Buku Siswa / Mahasiswa</h2>
+            <div class="books">
+                <div class="book">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg" alt="Buku 5">
+                    <div class="book-details">
+                        <h4>Sejarah Indonesia</h4>
+                        <p class="author">Oleh: Eva Rahma</p>
+                        <p>Ringkasan sejarah Indonesia dari zaman prasejarah hingga modern.</p>
+                        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg">Baca Buku Ini</a>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg" alt="Buku 6">
+                    <div class="book-details">
+                        <h4>Ekonomi Mikro</h4>
+                        <p class="author">Oleh: Faisal Ahmad</p>
+                        <p>Pembahasan mendalam tentang konsep-konsep ekonomi mikro.</p>
+                        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg">Baca Buku Ini</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buku Umum -->
+        <div class="category" id="buku-umum" style="display:none;">
+            <h2>Buku Umum</h2>
+            <div class="books">
+                <div class="book">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg" alt="Buku 7">
+                    <div class="book-details">
+                        <h4>Novel Cinta</h4>
+                        <p class="author">Oleh: Gita Permata</p>
+                        <p>Novel romantis yang mengisahkan perjalanan cinta dua insan.</p>
+                        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg">Baca Buku Ini</a>
+                    </div>
+                </div>
+                <div class="book">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg" alt="Buku 8">
+                    <div class="book-details">
+                        <h4>Teknologi Masa Depan</h4>
+                        <p class="author">Oleh: Hendra Kurniawan</p>
+                        <p>Analisis tentang perkembangan teknologi dan dampaknya di masa depan.</p>
+                        <a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgc9SwpcMwN1hPiNhF_aXnHGDu9vQWfIAOmUf3Xupv7mm46j_XYh6YVRuHfNEMNIwWVw9KnSTc90LzhvprH8rBeUJfRENpSnTanX_3F6LNNNLtCd7gqFpwgg3Ao15VXcbt2pOnJQTAURRFx0sOIl_oCU8YV-8TDPQu690Nl_vSaTPgjEYF5_cTSjBb95q4/s595/Coming%20Soon.jpg">Baca Buku Ini</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tentang Aplikasi -->
+        <div class="category" id="tentang" style="display:none;">
+            <h2>Tentang Aplikasi</h2>
+            <p style="text-align:justify;"><b>SANTI (Scholarly Achievement Network Through Innovation - Jaringan Prestasi Ilmiah Melalui Inovasi)</b> adalah pusat layanan publikasi hasil karya penelitian ilmiah dan non-ilmiah yang dirancang untuk mendukung dosen, guru, siswa, mahasiswa, serta masyarakat umum yang bergerak di bidang literasi. Platform ini memberikan ruang bagi para penggerak literasi untuk mempublikasikan, berbagi, dan mengakses berbagai karya ilmiah maupun non-ilmiah secara luas.</p>
+
+            <p style="text-align:justify;"><b>Tujuan utama konsep SANTI</b> ini adalah membantu setiap orang dalam mendapatkan pengakuan internasional atas karya tulis mereka, membuka peluang kolaborasi, serta meningkatkan prestasi di kancah global. Dengan dukungan <b>SANTI</b>, karya-karya dari berbagai kalangan dapat dikenal secara luas, membawa dampak positif terhadap karier dan perkembangan literasi.</p>
+
+            <p style="text-align:justify;"><b>Tujuan khusus</b> dari pengembangan <b>SANTI</b> adalah untuk mempermudah para dosen dalam memperoleh poin maksimal dalam pelaksanaan <b>TRI DHARMA Perguruan Tinggi</b>, khususnya pada aspek <b>Penelitian</b> dengan mendapatkan poin tertinggi yakni <b>20 SKS</b> didalam database SISTER masing-masing. Melalui platform ini, dosen dapat mempublikasikan hasil penelitian mereka dengan mudah, dan hasil tersebut dapat diakui secara resmi untuk diinput ke dalam <b>BKD SISTER (Beban Kerja Dosen)</b>. Hal ini memudahkan dosen dalam melaporkan kinerja akademik mereka dan mencapai target dalam evaluasi kinerja yang terkait dengan penelitian.</p>
+
+            <p style="text-align:justify;"><b>SANTI</b> dikembangkan oleh <b>CEO Developer Lombok IT, Abdul Kadir Bagis, M.Pd.</b>, yang juga mengembangkan berbagai aplikasi resmi untuk <b>Kementerian Kehutanan Republik Indonesia</b>, termasuk aplikasi yang digunakan oleh <b>Dinas Lingkungan Hidup dan Kehutanan Provinsi NTB.</b></p>
+        </div>
+    </div>
+        
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; <b>2024 SANTI - By Developer Lombok IT</b><br> <b>All Rights Reserved</b></p>
+        <div class="contacts">
+             <a href="https://www.youtube.com/channel/UCTabTAnNbfGjoACbuHGZydw" target="_blank" style="text-decoration: none;">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8WE4RTVuBBMSKXrkFiVjbCmbJKElzHjuADhpN7K7EwvoKqIkBQ8P0DhvB7z1EVK8k_HowAgcMqKlL6hXHTDyscU2qIH4hnmAa2mwgcWgAfWhOEpTfxQXTK6ke6DCJ6K_wAiCsnGVlyA48F0S4iosN5Oo3JfaNMtaXWxxpEtlX9hu6zNYBaqRnZAKAT-M/s48/YouTube.gif" alt="YouTube">
+    <p style="margin: 0; text-decoration: none;"><b>Subscribe, Like & Share</b></p>
+</a>
+
+<a href="https://wa.me/6287803582510?text=ٱلسَّلَامُ%20عَلَيْكُمْ%20وَرَحْمَةُ%20ٱللَّٰهِ%20وَبَرَكَاتُهُ.%0A%0ASalam%20Sejahtera,%20Admin.%20Saya%20(Cantumkan%20Nama%20Lengkap%20Anda%20Didalam%20Kurung%20ini)%20tertarik%20untuk%20memiliki%20aplikasi%20serupa%20untuk%20keperluan%20sertifikasi.%20Apa%20saja%20syaratnya?" target="_blank" style="text-decoration: none;">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjPA2q0yRwIJukCzwFekENtXyPf-_jqaNKSGovKLcHZQn9b9cgaAukukQv5HzpBAEb-vbbNkxyJWTyyXzgjHz88vZdl3AByom_3stKBl7IpjocO_-HLHL-os1O9_oqhxIxI9-zvEuYR1j0nGwdRzC9DE_8rMNC5zCq-HVPIVRCyVEDwxHDbsbgMGFdAopM/s48/WA%202.gif" alt="WhatsApp">
+    <p style="margin: 0; text-decoration: none;"><b>Pesan Aplikasi</b></p>
+</a>
+
+        </div>
+    </div>
+
+    <!-- YouTube Iframe API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+
+    <!-- JavaScript -->
+    <script>
+        // Inisialisasi YouTube Player
+        let player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '100%',
+                width: '100%',
+                videoId: 'yJ0ODnahl0I', // Ganti dengan ID video Anda
+                playerVars: {
+                    'playsinline': 1,
+                    'rel': 0,
+                    'showinfo': 0
+                },
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        function onPlayerReady(event) {
+            // Player siap
+        }
+
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING) {
+                // Sembunyikan tombol play ketika video mulai diputar
+                document.getElementById('play-button').style.display = 'none';
+            }
+        }
+
+        // Event Listener untuk Tombol Play
+        document.getElementById('play-button').addEventListener('click', function() {
+            player.playVideo();
+            this.style.display = 'none'; // Sembunyikan tombol setelah diklik
+        });
+
+        // Fungsi Navigasi Menu
+        const navButtons = document.querySelectorAll('.nav-btn');
+        const categories = document.querySelectorAll('.category');
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Hapus kelas aktif dari semua tombol
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                // Tambahkan kelas aktif pada tombol yang diklik
+                button.classList.add('active');
+
+                // Sembunyikan semua kategori
+                categories.forEach(cat => cat.style.display = 'none');
+
+                // Tampilkan kategori yang dipilih
+                const target = button.getAttribute('data-target');
+                document.getElementById(target).style.display = 'block';
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hyperlink dengan Gambar dan Animasi Zoom In</title>
+    <style>
+        body {
+            display: flex; /* Menggunakan flexbox */
+            flex-direction: column; /* Susun secara vertikal */
+            justify-content: center; /* Pusatkan secara vertikal */
+            align-items: center; /* Pusatkan secara horizontal */
+            height: 100vh; /* Tinggi penuh layar */
+            margin: 0; /* Menghilangkan margin default */
+            background-color: #f0f0f0; /* Warna latar belakang */
+        }
+        button {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            margin-bottom: 20px; /* Jarak antara gambar dan teks */
+        }
+        img {
+            width: 250px; /* Atur ukuran gambar sesuai kebutuhan */
+            height: auto;
+        }
+        /* Teks dengan animasi zoom in */
+        .marquee {
+            color: #0072ff;
+            font-weight: bold;
+            font-size: 1.5rem; /* Ukuran teks */
+            animation: zoomIn 5s ease-in-out infinite; /* Animasi zoom in */
+            text-align: center; /* Pusatkan teks */
+        }
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5); /* Awal: kecil */
+                opacity: 0; /* Transparan di awal */
+            }
+            50% {
+                transform: scale(1.2); /* Memperbesar lebih dari ukuran normal */
+                opacity: 1; /* Teks sepenuhnya terlihat */
+            }
+            100% {
+                transform: scale(1); /* Kembali ke ukuran normal */
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Tombol dengan gambar -->
+<button onclick="redirectToPlayStore()">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgaQK-z_zL7BN04261ZqHc-aeVVUhs0Dr9BjlX84zeQchbxaDendGURo7417MHhLPllD4ThklfQI-7rYbEYosNGeGceC9yCJumvoNcQ1K4LCv4W83LfAptWLp3_d272Kmoex-RoGzB8GyT-w7zeoEqAoGQwKd8g0-bHeeDq97pQLn3B3aT64bsHP0Z-QxM/s600/Playstore.gif" alt="Aplikasi Lombok IT">
+</button>
+
+<!-- Teks dengan animasi zoom in -->
+<div class="marquee">
+    Klik Gambar<br> Untuk Melihat Semua Aplikasi<br> Developer Lombok IT
+</div>
+
+<script>
+    // Fungsi untuk mengarahkan ke halaman Play Store saat tombol diklik
+    function redirectToPlayStore() {
+        window.location.href = "https://play.google.com/store/apps/dev?id=5168541788940595530&hl=id";
+    }
+</script>
+
+</body>
+</html>

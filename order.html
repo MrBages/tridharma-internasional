@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesan Aplikasi</title>
+    <style>
+        body {
+            display: flex; /* Menggunakan flexbox */
+            flex-direction: column; /* Susun secara vertikal */
+            justify-content: center; /* Pusatkan secara vertikal */
+            align-items: center; /* Pusatkan secara horizontal */
+            height: 100vh; /* Tinggi penuh layar */
+            margin: 0; /* Menghilangkan margin default */
+            background-color: #f0f0f0; /* Warna latar belakang */
+        }
+        img {
+            width: 250px; /* Atur ukuran gambar sesuai kebutuhan */
+            height: auto;
+        }
+        /* Teks dengan animasi zoom in */
+        .marquee {
+            color: green;
+            font-weight: bold;
+            font-size: 1.5rem; /* Ukuran teks */
+            animation: zoomIn 5s ease-in-out infinite; /* Animasi zoom in */
+            text-align: center; /* Pusatkan teks */
+        }
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5); /* Awal: kecil */
+                opacity: 0; /* Transparan di awal */
+            }
+            50% {
+                transform: scale(1.2); /* Memperbesar lebih dari ukuran normal */
+                opacity: 1; /* Teks sepenuhnya terlihat */
+            }
+            100% {
+                transform: scale(1); /* Kembali ke ukuran normal */
+                opacity: 1;
+            }
+        }
+        /* Gaya untuk teks link */
+        .link-text {
+            margin: 0;
+            text-decoration: none;
+            text-align: center;
+            color: #FF5733; /* Ganti dengan warna yang diinginkan */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Tombol dengan gambar WhatsApp -->
+<a href="https://wa.me/6287803582510?text=ٱلسَّلَامُ%20عَلَيْكُمْ%20وَرَحْمَةُ%20ٱللَّٰهِ%20وَبَرَكَاتُهُ.%0A%0ASalam%20Sejahtera,%20Admin.%20Saya%20(Cantumkan%20Nama%20Lengkap%20Anda%20Didalam%20Kurung%20ini)%20tertarik%20untuk%20memiliki%20aplikasi%20serupa%20untuk%20keperluan%20sertifikasi.%20Apa%20saja%20syaratnya?" target="_blank" style="text-decoration: none;">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjhVVJEyE_hbuYUIkSuamJ2iVSc19uB1mpTRVwUxSz10_3Ryeyoseh0wmC45Nww8YshYLghrNJuarX0E7zzXziP_GMNkKLHwi4Ur6KesV56cI9kask4OrqyWkN2G46bNPzbbs5d3IPwrAiEInbbVRJTGzzz4Ts3pE0m0hVroy8CHKFl_IPMLkFI3seZmdc/s1024/WhatsApp.gif" alt="WhatsApp">
+    <p class="link-text"><b>Hubungi CEO Developer Lombok IT</b></p>
+</a>
+
+<!-- Teks dengan animasi zoom in -->
+<div class="marquee">
+    <br>Klik Animasi Diatas<br> Untuk Memesan Aplikasi<br> Melalui WhatsApp
+</div>
+
+</body>
+</html>

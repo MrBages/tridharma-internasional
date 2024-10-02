@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SANTI - Scholarly Achievement Network Through Innovation</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #00c6ff, #0072ff);
+            color: #fff;
+            text-align: center;
+            overflow-x: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            width: 100%;
+            height: 250px;
+        }
+        header iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .logo {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            margin: 20px auto;
+        }
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        .nav-buttons button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 65px;
+            background: linear-gradient(to right, #ffffff 70%, rgba(255, 255, 255, 0.7));
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #1e90ff;
+            transition: box-shadow 0.3s;
+            cursor: pointer;
+            font-size: 12px;
+        }
+        .nav-buttons button img {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 5px;
+        }
+        .nav-buttons button:hover {
+            box-shadow: 0 0 15px #ffff00;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1px 0;
+            width: 100%;
+            margin-top: auto;
+        }
+        .animated-background {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJkhGCLwkcehGNjohoVGB4j5i6_Sx-9y_s9zqTL1ggn58lRDgQ_Z3KoQ4NA1JeRR9oudtMDUW-L4kbTfWVDUZGlG_GNjv3SUc4PcXol6PvaZ5JwIWkcfZYuv2_9hKI8As1ZY-i37KgR3o6hZEJJnIZiQxQTgyfNxILqZlBq70v_jXC2Jc1QRK3BmOYjMQ/s1024/MiWallpaper%201.gif') no-repeat center center fixed;
+            background-size: 100% 100%; /* Pastikan gambar selalu memenuhi seluruh layar */
+        }
+
+        /* Media Query untuk layar yang lebih besar */
+        @media (min-width: 768px) {
+            .animated-background {
+                background-size: cover; /* Gunakan cover untuk layar desktop */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="animated-background"></div>
+    <header>
+        <iframe src="https://www.youtube.com/embed/kPaLdYFE1nQ?autoplay=1&loop=1&modestbranding=1&playlist=kPaLdYFE1nQ&rel=0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" frameborder="0" allowfullscreen></iframe>
+    </header>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP7ZK6yU2mwwLGpqAqRKu3vGzc2RhU0CD_hOUPHADziw0PUw0orGhBKY_9gGvuC3Nd7Dxb-KYy2mmIcqW3ONVHJFgZpBT5eL9svGdrxEgxzsEHoO3gUCFdWpNDz72lqLnP3vonkZJN_d4EB35O9zXqyydFOSqF1HJqTkhWBOZhV-5BKJek5oAH9Mhy1HY/s1000/LOGO%20Lombok%20IT.png" alt="Logo" class="logo">
+    <div class="nav-buttons">
+        <button onclick="location.href='digilib.html'"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_iM9H_v8ZgAvHNrR_YawSqnaZddKN5PMXXijHRaxOnLms8y2qCqrY5vs5HqAAkoaJmVQW88QhmoHq-Dzooaa0k1WwR9jUZZ5pjX9Uq-Zo-l0RaJaw7HrLngCoNYyhI-MeWiCj-Yu2T0MGFssT3_fjnfsTmo1jGqGhGWYWtCMRGi9-V328Wuk3wlagqSw/s48/literature1.gif" alt="Digilib">Tri Dharma Internasional (Digital)</button>
+		<button onclick="location.href='playstore.html'"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgKP0zlukNyh7G4rqg8TEjFzmKlHPLOBJ3QPbBVtKVhpWD5F27QMV-2rDwQuv-lnwO2C8FIZVp2h54dZcSfZKsj2SXAVRLVY_N50aZoTjx0LXYEqfdUoml09e0gSKzWeuVjWVEs2ObtIEbeQOwqtdLo5cEdsgIHJ35-AsFqTT7tNjoOg7VTXasVMUFlP2Y/s480/Playstore%20Icon%204.gif" alt="Playstore">Aplikasi Lombok IT</button>
+        <button onclick="location.href='staff.html'"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAbdIqBEuHxv2p8VbJij3r4hFoSjAfcz4tgJuYrORkAxsb24YspQE6dNq5DYi3x337dMF9erm665hzXHN3LyS0vmfPJOGHvD0ASia7BKyuHQLWBv1OD5d9P-otv-k3OpKp12N78TXr7B8T1RmI8i_vfcV42vQJ82dZwcIY4_i9YpwkbV3-zYUP6Frs-qQ/s48/Admin.gif" alt="Staff">Team Lombok IT</button>
+		<button onclick="location.href='tentang.html'"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiP7ZK6yU2mwwLGpqAqRKu3vGzc2RhU0CD_hOUPHADziw0PUw0orGhBKY_9gGvuC3Nd7Dxb-KYy2mmIcqW3ONVHJFgZpBT5eL9svGdrxEgxzsEHoO3gUCFdWpNDz72lqLnP3vonkZJN_d4EB35O9zXqyydFOSqF1HJqTkhWBOZhV-5BKJek5oAH9Mhy1HY/s1000/LOGO%20Lombok%20IT.png" alt="Tentang">Tentang Lombok IT</button>
+		<button onclick="location.href='order.html'"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjp-DjEF7JL1y5axZvmCh5-qln1RRmjhCsW1kZim_ONuXzxYp2ygVyNxT-JY8ORB7I40gAl3-Pny2d0XuMCUffHXGjkPwaufto5T7RpEC1mn8e6KfLdNbxMBZfwyNrJMHVbt7Q_kw8Vh46yjKs-obpYNqUmmVUB7TPJzw1pug55bxNpLMc6foVJSoP05NE/s200/Shop.gif" alt="Order">Pesan Aplikasi</button>
+	</div>
+    <footer>
+       <p>&copy; 2024 Developer Lombok IT<br>(Abdul Kadir Bagis, M. Pd)</p>
+    </footer>
+</body>
+</html>
